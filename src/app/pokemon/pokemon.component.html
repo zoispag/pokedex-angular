@@ -1,0 +1,16 @@
+<ng-container *ngIf="loaded">
+    <div class="whitespace-no-wrap text-center">
+        (#{{ pokemonData.id }}) <span class="font-bold">{{ pokemonData.name | titlecase }}</span>
+    </div>
+    <div class="mx-auto w-full">
+        <img
+            class="w-full"
+            [alt]="pokemonData.name"
+            [defaultImage]="placeholder"
+            [lazyLoad]="pokemonData.sprites.front_default"
+        >
+    </div>
+    <div class="flex">
+        <app-type [class]="getTypeClass(type.type.name)" *ngFor="let type of typesArray;" [type]="type.type.name"></app-type>
+    </div>
+</ng-container>
